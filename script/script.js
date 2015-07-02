@@ -9,4 +9,8 @@ $(document).ready(function() {
   $(".cell").on("mouseenter", function() {
     $(this).css("background-color", "red");
   });
+  var response;
+  $("button").on("click", function() {
+    response = +prompt("How many rows / columns would you like in your grid?");
+  });
 });
