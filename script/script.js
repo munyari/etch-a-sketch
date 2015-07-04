@@ -1,16 +1,22 @@
+var grid = $('#grid');
+var GRIDWIDTH = 960;
+
+// function that draws given response
+function() drawGrid(n) {
+    var cellWidth = Math.floor(GRIDWIDTH / n) - 2;
+    for (var i = 0; i < response * response; i++) {
+        grid.append("div class='cell'></div>");
+    }
+}
+
 $(document).ready(function() {
-  var grid = $("#grid");
-  var cellWidth = Math.floor($("#grid").width() / 16) - 2;
-  for (var i = 0; i < 16 * 16; i++) {
-    grid.append("<div class='cell'></div>");
-  }
-  $(".cell").css({"width": cellWidth, "height": cellWidth, "margin-top": "-2px"});
-  
-  $(".cell").on("mouseenter", function() {
-    $(this).css("background-color", "red");
-  });
-  var response;
-  $("button").on("click", function() {
-    response = +prompt("How many rows / columns would you like in your grid?");
-  });
+    var response = +prompt("How many columns / rows do you want in your grid?");
+    $('button').on('click', function() {
+        response = +prompt("How many columns / rows do you want in your grid?");
+        drawGrid(response);
+    });
+    $(".cell").on("mouseeenter", function() {
+        $(this).addClass("highlight");
+    });
+    
 });
