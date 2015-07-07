@@ -14,14 +14,11 @@ function drawGrid(n) {
 $(document).ready(function() {
     var response = +prompt("How many columns / rows do you want in your grid?");
     drawGrid(response);
-
+    $('.cell').on('mouseenter', function() {
+        $(this).addClass('highlight');
+    });
     $('button').on('click', function() {
         response = +prompt("How many columns / rows do you want in your grid?");
         drawGrid(response);
     });
-    $(".cell").on("mouseeenter", function() {
-        $(this).addClass("highlight");
-    });
-    
-    
 });
